@@ -144,6 +144,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
               data-mdb-toggle="dropdown"
               aria-expanded="false"
             >
+            <span class="text-black me-2"><?php echo $_SESSION["name"] ; ?></span>
               <img
                 src="pics/icons8-administrator-male-48.png"
                 class="rounded-circle"
@@ -180,7 +181,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
     <h3 class=" ps-3 ">
       My profile
     </h3>
-
+    
     <?php 
       include('connection.php');
       $userId=$_SESSION['id']; 
@@ -202,14 +203,14 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
                       <h4 class="text-right">Settings</h4>
                   </div>
                   <div class="row mt-2">
-                      <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $rows['first_name']; ?>"></div>
-                      <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="<?php echo $rows['last_name']; ?>" placeholder="surname"></div>
+                      <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $rows['first_name']; ?>" disabled></div>
+                      <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="<?php echo $rows['last_name']; ?>" placeholder="surname" disabled></div>
                   </div>
                   <div class="row mt-3">
-                      <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                      <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value="<?php echo $rows['email']; ?>"></div>
-                      <div class="col-md-12"><label class="labels">password</label><input type="text" class="form-control" placeholder="enter new password" value="<?php echo $rows['user_password']; ?>"></div>
-                      <div class="col-md-12"><label class="labels">confirme password</label><input type="text" class="form-control" placeholder="confirme password" value="<?php echo $rows['user_password']; ?>"></div>
+                      <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value="<?php echo $rows['phoneNumber']; ?>" disabled></div>
+                      <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value="<?php echo $rows['email'];  ?> " disabled></div>
+                      <!-- <div class="col-md-12"><label class="labels">password</label><input type="text" class="form-control" placeholder="enter new password" value="<?php ; ?>"></div>
+                      <div class="col-md-12"><label class="labels">confirme password</label><input type="text" class="form-control" placeholder="confirme password" value="<?php ; ?>"></div> -->
 
                   </div>
                  
@@ -221,6 +222,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
   </div>
   </div>
   </div>
+  
          
   </main>
   <!--Main layout-->

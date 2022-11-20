@@ -46,14 +46,14 @@ include('server.php');
         
                 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                     <!-- this is the form  -->
-                    
+
                     <form style="width: 23rem;"  method="post" >
-                    
+
                      <!-- To show errors is user put wrong data -->
-                      <div class="error text-danger" > <?php echo $error2 ?> </div>
+                       <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error2; ?></div>
+
 
                       <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
-          
                       <div class="form-outline mb-4">
                         <input type="email" id="form2Example18" name="email" class="form-control form-control-lg" />
                         <label class="form-label" for="form2Example18">Email address</label>

@@ -178,6 +178,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
               data-mdb-toggle="dropdown"
               aria-expanded="false"
             >
+            <span class="text-black me-2"><?php echo $_SESSION["name"] ; ?></span>
               <img
                 src="pics/icons8-administrator-male-48.png"
                 class="rounded-circle"
@@ -257,7 +258,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
       <li class="breadcrumb-item active" >books modifications</li>
     </ol>
     <div class="d-grid p-4 ">
-      <button type="button" class=" btn btn-info rounded-pill border-warning" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
+      <button type="button" class=" btn btn-info rounded-pill border-warning" onclick=" clear_form();" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
     </div>
   
   <h3 class=" pt-3 ps-3">books table:</h3>
@@ -265,18 +266,28 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
 
         <!-- Modal -->
-
+     
 <div  class="modal fade"  id="modalform"  aria-labelledby="modalform">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content"> 
     <div class="modal-header bg-info text-white ">
       <h1 class="modal-title fs-5" > 📚 Add new BooK </h1>
       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body ">
+
       <form id="form" action="server.php" method="post">
 
-      <input type="hidden" name="adminId" id="adminId" >
+      <input type="hidden" name="bookId" id="bookId" >
+
+      <!-- <div class="form-control mb-3">
+
+        <label for="title" class="form-label">IMG</label>
+        <label for="file-upload" class="custom-file-upload ">
+
+        </label>
+        <input id="file-upload" name="img" type="file">
+      </div> -->
 
       <div  class="mb-3">
           <label  class="col-form-label"> 📔 Title:</label>
@@ -290,8 +301,8 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
         
         <div  class="mb-3">
-        <label for="tentacles" class="col-form-label">quantity:</label>
-        <input type="number" name="quantity"  class="form-control" id="quantity" min="10" max="100">
+        <label for="quantity" class="col-form-label">quantity:</label>
+        <input type="number" name="quantity"   class="form-control" id="quantity" min="0" max="100">
         </div>
 
           <div>
@@ -312,7 +323,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
 
         <div class="mb-3">
-          <label for="Description" class="col-form-label">💡 About:</label>
+          <label for="about" class="col-form-label">💡 About:</label>
           <textarea class="form-control"  name="about"   id="about"></textarea>
         </div>
 
@@ -321,7 +332,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
         <div class="modal-footer bg-info">
           <a href="#" class="btn btn-white" data-mdb-dismiss="modal">Cancel</a>
           <button type="submit" name="save_book" class="btn btn-primary task-action-btn" id="task-save-btn" >Save</button>
-          <button type="button" class=" m-2 btn  btn-l btn-info btn-rounded"><a class="text-decoration-none text-light " href="bookmodifs.php? update='<?php echo $rows['id'] ?>'">update</a></button>
+          <button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</button>
         </div>
       </form>
     </div>
@@ -348,7 +359,12 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
           
         </tr>
       </thead>
+      <tbody>
+
       <?php getbooks(); ?>
+
+      </tbody>
+     
      
       
     </table>
@@ -360,7 +376,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
   <!--Main layout-->
 
       
-  
+               <script src="app.js"></script>
                 <script
                 type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"

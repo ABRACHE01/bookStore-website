@@ -4,19 +4,19 @@ session_start();
 
     //PHP code to logout user from website
     if(isset($_GET['logout']))  logout() ;
-    if(isset($_POST['save_book']))   saveBook();
-    if(isset($_GET['delete']))  deleteTask();
-    if(isset($_GET['update']))  updateBook();
+    if(isset($_POST['save_book']))  saveBook();
+    if(isset($_GET['delete']))  deleteBook();
+    if(isset($_POST['update']))  updateBook();
 $error="";
 $error3="";
 if(array_key_exists('SignUp',$_POST)){
     include('connection.php');
 
-    //header("Location: dashboaed.php");
 
     //taking data frome user
     $Fname = mysqli_real_escape_string($linkDB,$_POST['Firstname']);
     $Lname = mysqli_real_escape_string($linkDB,$_POST['Lastname']);
+    $number = mysqli_real_escape_string($linkDB,$_POST['phoneNumber']);
     $Email = mysqli_real_escape_string($linkDB,$_POST['YourEmail']);
     $Password = mysqli_real_escape_string($linkDB,$_POST['Password']);
     $RPassword = mysqli_real_escape_string($linkDB,$_POST['Repeatyourpassword']);
@@ -32,6 +32,9 @@ if(array_key_exists('SignUp',$_POST)){
     }
     if(!$Password ){
         $error .= "password is faild is empty<br>";
+    }
+    if(!$number){
+        $error .= "phone number is faild is empty<br>";
     }
     if($Password !== $RPassword ){
         $error .= "passwords did not matched ! <br>";
@@ -49,16 +52,14 @@ if(array_key_exists('SignUp',$_POST)){
         }else{
             //password encryption 
             $hashedPassword= password_hash($Password,PASSWORD_DEFAULT);
-            $queary= "INSERT INTO admin (`first_name`, `last_name`, `email`, `user_password`) VALUES ('$Fname','$Lname','$Email','$hashedPassword')";
+            $queary= "INSERT INTO admin (`first_name`, `last_name`,`phoneNumber`, `email`, `user_password`) VALUES ('$Fname','$Lname','$number','$Email','$hashedPassword')";
             $result = mysqli_query($linkDB,$queary);
             if (!$result){
 
                 $error = " you are not logged in -try again later ";
 
             }else{
-                // $_SESSION['id']= mysqli_insert_id($linkDB);
-                // $_SESSION['first_name']= mysqli_insert_id($linkDB);
-                // $_SESSION['last_name']= mysqli_insert_id($linkDB);
+               
                 echo " you are signed up <br>";
                 header("Location: logIn.php");
 
@@ -125,8 +126,6 @@ if (array_key_exists("logIn", $_POST)) {
     }
 
 
-
-
 function logout(){  
 
     unset($_SESSION["name"]);
@@ -134,11 +133,6 @@ function logout(){
     header("Location:logIn.php");
     exit();
 }
-
-
-
-
-
 
 
  // if you push the button save 
@@ -152,12 +146,11 @@ function logout(){
 
     //(1) import iput values from modal
 
-
-
-    if(empty($_POST['title'] && $_POST['writer'] && $_POST['type'] && $_POST['date'] && $_POST['about'] && $_POST['price'])){
+    if(empty(  $_POST['title'] && $_POST['writer'] && $_POST['type'] && $_POST['date'] && $_POST['about'] && $_POST['price'])){
         $_SESSION['errore']=" please fill all the modal inputs. ";
         header("location:bookmodifs.php");
     }else{
+  
     $title=$_POST['title'];
     $writer=$_POST['writer'];
     $type=$_POST['type'];
@@ -165,11 +158,14 @@ function logout(){
     $about=$_POST['about'];
     $price=$_POST['price'];
     $quantity=$_POST['quantity'];
-  
-
+    // $image = $_FILES['img']['name'];
+    // $upload = "images/" . $image;
+    // move_uploaded_file($_FILES['img']['tmp_name'], $upload);
+    // print_r($_POST);
+    
     // (2) SQL INSERT
     
-    $req= "INSERT INTO `books`(`quantity`,`book_name`,`writer_name`,`book_type`,`book_date`,`about`,`price`) VALUES ('$quantity','$title','$writer','$type','$date','$about','$price')";
+    $req = " INSERT INTO `books`(`image`,`quantity`,`book_name`,`writer_name`,`book_type`,`book_date`,`about`,`price`) VALUES ('$image','$quantity','$title','$writer','$type','$date','$about','$price')";
 
     mysqli_query($linkDB,$req);
    
@@ -181,7 +177,6 @@ function logout(){
  }
 
 
-
  function getbooks(){
 
     include('connection.php');
@@ -190,26 +185,26 @@ function logout(){
     $requete= "SELECT * from books ";
     $query=mysqli_query($linkDB , $requete);
    
-while($rows=mysqli_fetch_assoc($query)){
+  while($rows=mysqli_fetch_assoc($query)){
 
   ?>  
   
+    
   
-  
-  <tbody>
-        <tr>
+ 
+        <tr id="<?php echo $rows['id']; ?>">
           
           <td>
 
             <div class="d-flex align-items-center ">
-              <img
-                  src="pics/Green_Book_poster.jpg"
-                  alt="bookpic"
-                  style="width: auto; height: 200px"
-                  class="rounded-2"
-                  />
+              
             <div class="ms-3">
-                <p class="fw-bold mb-1">🌟<span class="h5 idoftab"><?php echo $rows['id']; ?></span><span class="nameoftabl"><?php echo $rows['book_name']; ?></span></p>
+            <?php
+ 
+                // echo '<img src="images/'.$image.'">';
+
+                ?>
+                <p class="fw-bold mb-1">🌟<span class="h5 idoftab"><?php echo $rows['id']; ?></span><span class="titleoftab"><?php echo $rows['book_name']; ?></span></p>
             </div>
             </div>
           </td>
@@ -219,29 +214,29 @@ while($rows=mysqli_fetch_assoc($query)){
             
           </td>
            <td>
-            <span class="badge badge-success rounded-pill d-inline typeoftab"><?php echo $rows['book_type']; ?></span>
+            <span class="badge badge-success rounded-pill d-inline typeoftab "><?php echo $rows['book_type']; ?></span>
           </td>
-          <td class="dateoftab"><?php echo $rows['book_date']; ?></td>
-          <td class="abuotoftab"><?php echo $rows['about']; ?></td>
-          <td class="dateofquantity"><?php echo $rows['quantity']; ?></td>
-          <td class="dateofprice"><?php echo $rows['price']; ?> DH</td>
+          <td class=" dateoftab "><?php echo $rows['book_date']; ?></td>
+          <td class=" abuotoftab "><?php echo $rows['about']; ?></td>
+          <td class=" quantityoftab "><?php echo $rows['quantity']; ?></td>
+          <td ><span class=" priceoftab "><?php echo $rows['price']; ?></span> DH </td>
 
           <td>
-            <button type="button" class=" m-2 btn  btn-l btn-info btn-rounded" data-mdb-toggle="modal" data-mdb-target="#modalform">update</button>
-            <span class="m-2 btn  btn-danger btn-rounded  " > <a class="text-decoration-none text-light " href="bookmodifs.php? delete='<?php echo $rows['id'] ?>'" >Delete</a> </span>
+            <button type="button"  onclick="gitElementToModal(<?php echo $rows['id']; ?>);" class=" m-2 btn  btn-l btn-info btn-rounded" data-mdb-toggle="modal" data-mdb-target="#modalform">update</button>
+            <button class="m-2 btn  btn-danger btn-rounded " > <a class="text-decoration-none text-light " href="bookmodifs.php? delete='<?php echo $rows['id'] ?>'" >Delete</a> </button>
              
-            </button>
           </td>
         </tr>
 
         
-      </tbody>
+      
  <?php 
  }
 ?>
       
  <?php 
  }
+
 
 function updateBook(){
 
@@ -259,12 +254,13 @@ function updateBook(){
     $about=$_POST['about'];
     $price=$_POST['price'];
     $quantity=$_POST['quantity'];
-    $bookId = $_GET['update'];
+    $bookId = $_POST['bookId'];
+
     //SQL DELETE 
-    mysqli_query($linkDB ," UPDATE `books` SET ``book_name`='$title',`writer_name`='$writer',`book_type`='$type',`admin_id`='$date',`book_date`='$date',`about`='$about',`quantity`='$quantity',`price`='price' WHERE books.id = $bookId");
+    mysqli_query($linkDB ," UPDATE `books` SET `book_name`='$title',`writer_name`='$writer',`book_type`='$type',`book_date`='$date',`about`='$about',`quantity`='$quantity',`price`='$price' WHERE books.id = $bookId ");
 
-
-
+    $_SESSION['message'] = "Task has been updated successfully !";
+    header('location: bookmodifs.php');
 
 }
 
@@ -289,12 +285,24 @@ function updateBook(){
 
 // counter of buttons in every task 
 
-function countT(){
+function countbooks(){
 
     include('connection.php');
     global $linkDB ;
     //SQL COUNTER OF 
     $sql = "SELECT count(*) FROM books"; 
+    $result = mysqli_query($linkDB, $sql);
+    $row =mysqli_fetch_array($result);
+    echo  $row[0];
+   
+}
+
+function count_price(){
+
+    include('connection.php');
+    global $linkDB ;
+    //SQL COUNTER OF 
+    $sql = "SELECT SUM(price)FROM books "; 
     $result = mysqli_query($linkDB, $sql);
     $row =mysqli_fetch_array($result);
     echo  $row[0];
@@ -314,17 +322,10 @@ function adminscount(){
    
 }
 
-// function adminscount(){
 
-//     include('connection.php');
-//     global $linkDB ;
-//     //SQL COUNTER OF
-//     $sql = "SELECT count(*) FROM admin"; 
-//     $result = mysqli_query($linkDB, $sql);
-//     $row =mysqli_fetch_array($result);
-//     echo  $row[0];
-   
-// }
+
+
+
   
 
 

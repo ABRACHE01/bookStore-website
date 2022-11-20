@@ -171,13 +171,14 @@ body {
           <!-- Avatar -->
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+              class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center "
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
               data-mdb-toggle="dropdown"
               aria-expanded="false"
             >
+            <span class="text-black me-2"><?php echo $_SESSION["name"] ; ?></span>
               <img
                 src="pics/icons8-administrator-male-48.png"
                 class="rounded-circle"
@@ -222,7 +223,7 @@ body {
           <section  class="carts container-fluid">
              <h2>📚 number of Books</h2>
              <br>
-              <h1> <?php countT(); ?></H1>
+              <h1> <?php countbooks(); ?></H1>
             </section>
      
          <section class="carts container-fluid">
@@ -234,11 +235,13 @@ body {
          </section>
 
          <section class="carts container-fluid">
-             <h2>📈 price ofe all books  </h2>
+             <h2>📈 sum price of Books  </h2>
               <br>
               <br>
-              <h1>0</H1>
+              <h1><?php count_price(); ?>DH</H1>
          </section>  
+
+        
      </div>
   </section>
 

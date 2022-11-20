@@ -51,12 +51,15 @@ include('server.php');
                         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-          
+
+                          <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error; ?></div>
+
                           <form class="mx-1 mx-md-4" action="" method="post" >
-                              <div class="error text-danger"><?php echo  $error; ?></div>
+                              
                              <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
                                     <div class="col-md-6 d-flex flex-row align-items-center mb-4">
+
                                 <i class="fas fa-user fa-lg me-3 fa-fw" ></i>
                                 <div class="form-outline flex-fill mb-0">
                                         <input type="text" name="Firstname"  id="form3Example1" class="form-control" />
@@ -69,6 +72,7 @@ include('server.php');
                                         <input type="text" name="Lastname" id="form3Example2" class="form-control" />
                                         <label class="form-label" for="form3Example2">Last name</label>
                                     </div>
+
                                     </div>
                                 </div>
           
@@ -80,6 +84,15 @@ include('server.php');
                               </div>
                             </div>
           
+                            <div class="d-flex flex-row align-items-center mb-4">
+                              <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+                              <div class="form-outline flex-fill mb-0">
+                                <input type="tel"    name="phoneNumber" id="phone" class="form-control"  />
+                                <label class="form-label" for="phoneNumber">Phone number/Format: 0656565656</label>
+                              </div>
+                            </div>
+                            
+
                             <div class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div class="form-outline flex-fill mb-0">
@@ -96,7 +109,7 @@ include('server.php');
                               </div>
                             </div>
 
-                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <div class=" container-fluid  d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <button type="submit" name="SignUp" value="Sign Up" for class="btn btn-info btn-lg btn-block ">Register</button>
                             </div>
 
