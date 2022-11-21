@@ -1,13 +1,63 @@
-.bg-image-vertical {
-    position: relative;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
-    }
+
+
+    /* register style */
+
+    .bg-image-vertical {
+        position: relative;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: auto 100%;
+        }
+        
+        @media (min-width: 1025px) {
+        .h-custom-2 {
+        height: 100%;
+        }
+        }
+    /* --------------------------- */
+
+
+
+
+    /* dashboard style */
+    .Weclome{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      
+      .part2{
+          justify-items: center;
+          display: grid;
+          grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+          gap: 50px;
+          
+      }
+      
+      .carts{
+          background-color: #fff;
+          border: 3px solid wheat ;
+          margin: 20px;
+          padding: 20px;
+          border-radius: 5px;
+          
+      }
+      
+     
     
-    @media (min-width: 1025px) {
-    .h-custom-2 {
-    height: 100%;
+    /* ----------------------------- */
+
+
+    /* bookmodifs style */
+    .tiblehead{
+      background-color:rgba(123, 198, 233, 0.733);
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color:white;
+    
     }
-    }
+
+    /* ----------------------------- */
+
+
+
+
+

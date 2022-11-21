@@ -5,204 +5,14 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
  
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>books modifications</title>
-
-                    <!-- Font Awesome -->
-                <link
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-                rel="stylesheet"
-                />
-                <!-- Google Fonts -->
-                <link
-                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-                rel="stylesheet"
-                />
-                <!-- MDB -->
-                <link
-                href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
-                rel="stylesheet"
-                />
-                <!-- MDB -->
-                
-                <style>
-                    body {
-  background-color: #fbfbfb;
-}
-@media (min-width: 991.98px) {
-  main {
-    padding-left: 240px;
-  }
- 
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 58px 0 0; /* Height of navbar */
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-  width: 240px;
-  z-index: 600;
-}
-
-@media (max-width: 991.98px) {
-  .sidebar {
-    width: 100%;
-  }
-
-}
-.sidebar .active {
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-}
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}
-.Weclome{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.part2{
-    justify-items: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 50px;
-    
-}
-
-.carts{
-    background-color: #fff;
-    border: 3px solid wheat ;
-    margin: 2px;
-    padding: 20px;
-    border-radius: 5px;
-    
-}
-
-.tiblehead{
-  background-color:rgba(123, 198, 233, 0.733);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color:white;
-
-}
 
 
+<?php include('head.php'); ?>
 
 
-
-</style>
-
-</head>
-
-<body>
-<!--Main Navigation-->
-<header>
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="  collapse d-lg-block sidebar collapse bg-white">
-      <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-4">
-          <a
-            href="dashboaed.php"
-            class="list-group-item list-group-item-action py-2 ripple" 
-          >
-          🏠 dashboard
-          </a>
-          <a href="profileSettings.php" class="list-group-item list-group-item-action py-2 ripple ">
-          👨‍💼 My profile
-          </a>
-          <a href="bookmodifs.php" class="list-group-item list-group-item-action py-2 ripple ">
-          📚 Books modifications </a>
-          
-          <form >
-          <button type="submit" name="logout" class="list-group-item list-group-item-action py-2 ripple  ">
-            🚪🚶 log out 
-          </button>
-          </form>
-
-
-          
-          </div>
-          
-        </div>
-      </div>
-    </nav>
-    <!-- Sidebar -->
-  
-    <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <!-- Container wrapper -->
-      <div class="container-fluid">
-        <!-- Toggle button -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#sidebarMenu"
-          aria-controls="sidebarMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-  
-        <!-- Brand -->
-        <a class="navbar-brand" href="dashboaed.php">
-          <img
-            src="pics/icons8-bookcase-48.png"
-            height="30"
-            alt="MDB Logo"
-            loading="lazy"
-          /><h3 class="mb-0" >Books</h3>
-        </a>
-        <!-- Right links -->
-        <ul class="navbar-nav ms-auto d-flex flex-row">
-          <!-- Avatar -->
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-            <span class="text-black me-2"><?php echo $_SESSION["name"] ; ?></span>
-              <img
-                src="pics/icons8-administrator-male-48.png"
-                class="rounded-circle"
-                height="30"
-                alt="Avatar"
-                loading="lazy"
-              />
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <li>
-                <a class="dropdown-item" href="profileSettings.php">My profile</a>
-              </li>
-              
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
-  </header>
+<?php include('header.php'); ?>
+      
+   
   <!--Main Navigation-->
   
   <!--Main layout-->
@@ -237,19 +47,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 				</div>
 			  <?php endif ?>
 
-        <?php if (isset($_SESSION['message2'])): ?>
-				<div class="alert alert-danger alert-dismissible fade show">
-				<strong>eror!</strong>
-					
-          <?php 
-
-						echo $_SESSION['message2']; 
-						unset($_SESSION['message2']);
-					?>
-					<button type="button" class="btn-close" data-mdb-dismiss="alert"></span>
-
-				</div>
-			  <?php endif ?>
+       
 
        
 
@@ -258,7 +56,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
       <li class="breadcrumb-item active" >books modifications</li>
     </ol>
     <div class="d-grid p-4 ">
-      <button type="button" class=" btn btn-info rounded-pill border-warning" onclick=" clear_form();" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
+      <button type="button" class=" btn btn-info rounded-pill border-warning" onclick=" hidebuttonupdate(); clear_form();" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
     </div>
   
   <h3 class=" pt-3 ps-3">books table:</h3>
@@ -271,7 +69,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
   <div class="modal-dialog">
     <div class="modal-content"> 
     <div class="modal-header bg-info text-white ">
-      <h1 class="modal-title fs-5" > 📚 Add new BooK </h1>
+      <h1 class="modal-title fs-5" id="ModaleTitle" > 📚 Add new BooK </h1>
       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body ">
@@ -280,14 +78,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
       <input type="hidden" name="bookId" id="bookId" >
 
-      <!-- <div class="form-control mb-3">
-
-        <label for="title" class="form-label">IMG</label>
-        <label for="file-upload" class="custom-file-upload ">
-
-        </label>
-        <input id="file-upload" name="img" type="file">
-      </div> -->
+      
 
       <div  class="mb-3">
           <label  class="col-form-label"> 📔 Title:</label>
@@ -329,10 +120,12 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
         </div>
 
-        <div class="modal-footer bg-info">
+        <div class=" modal-footer bg-info" id="modal-footer">
+
           <a href="#" class="btn btn-white" data-mdb-dismiss="modal">Cancel</a>
-          <button type="submit" name="save_book" class="btn btn-primary task-action-btn" id="task-save-btn" >Save</button>
-          <button type="submit" name="update" class="btn btn-warning task-action-btn" id="task-update-btn">Update</button>
+          <button type="submit" name="save_book" class="btn btn-primary task-action-btn" id="save-btn" >Save</button>
+          <button type="submit" name="update" class="btn btn-warning task-action-btn" id="update-btn">Update</button>
+
         </div>
       </form>
     </div>
@@ -347,7 +140,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
     <table class="table align-middle mb-0 bg-white">
       <thead class="tiblehead">
         <tr  >
-
+          
           <th>book </th>
           <th>writer</th>
           <th>type</th>
@@ -376,11 +169,12 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
   <!--Main layout-->
 
       
-               <script src="app.js"></script>
-                <script
-                type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
-                ></script>
+  <script src="app.js"></script>
+
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+  ></script>
   
 </body>
 </html>

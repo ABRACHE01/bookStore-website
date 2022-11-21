@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 06:00 PM
+-- Generation Time: Nov 21, 2022 at 10:15 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -31,6 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) NOT NULL,
+  `phoneNumber` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `user_password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,13 +40,15 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `first_name`, `last_name`, `email`, `user_password`) VALUES
-(3, 'med', 'abrache', 'abrache@fgfg', '$2y$10$8tOIvvsROmDp6WnWROeWSOoARb9Q6tIClx2fMVb2JQNiLhDWd6Z22'),
-(4, 'med', 'abr', 'med@gmail.com', '$2y$10$8TGT3/C8h.eeydcmQJfuMOk7MifQ04uMT88F.pI29QMoVdMgw2Hvq'),
-(5, 'Nadir', 'Inab', 'Nadir@gmail.com', '$2y$10$5Vmkgafuw2vWhRFJeJM1u.AgOsyyjZUuHkR0NpxgRiSytU8TJA5W6'),
-(6, 'mohamed', 'salah', 'mo@gmail.com', '$2y$10$IiY0zH7JJC1nuv9832JWYu9AFK99c6MizObybAsB8eWWlJE/BdS9a'),
-(7, 'med', 'jal', 'denia@bikala', '$2y$10$rtL0r5AFbgGRl2IYi7TYb.u/P8kpe7N1.59zaff0Ig0tnmlxBuAcW'),
-(8, 'med', 'abr', 'abrache@school.com', '$2y$10$VkEbIY9.H.KDzoDOboH4eeQnHrhe0ebVGRL0mGrgbN2y.ZxstdCvq');
+INSERT INTO `admin` (`id`, `first_name`, `last_name`, `phoneNumber`, `email`, `user_password`) VALUES
+(1, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$GFWa21AuG5x2SXRP2WqG1ORnwvwSPw.rrc9EwuEHdft.qAmOBBW3y'),
+(2, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$wqYYaQt/CaoGe119a4xfqefgHjLm0bsnEfQ/Cp9OdWhycLqk0rmN2'),
+(3, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$t8EUF0.VCpHRaCA87PJu3u6a7vrzo3G.hR.JN9D9Ggk9.R93S.F0C'),
+(4, 'mohamed', 'abrache', 45645645, 'abrache200 ', 'tarek'),
+(5, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$bAd6v4UFItPpZFEUoRu.iuo9qq1NLSO0ePUczg4P6/.dam1BqDCnG'),
+(6, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$yu8KJZfeiLjvRBIyOxXA8uX5Sq4TRhf5fsL0jHCrglxxPcoHeeMVS'),
+(7, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$cZ7XlMs8kIAIMvW1htcDp.nfr4eO0XG61t0TYSsNdQVjpxaKugoFu'),
+(8, 'mohamed', 'abrache', 45645645, 'abrache200 ', '$2y$10$YFlB3GSawBP1YdSk5tHD0OyMj/djDr7ACEGVhG2kQG5VPztlNoZ3O');
 
 -- --------------------------------------------------------
 
@@ -54,12 +57,10 @@ INSERT INTO `admin` (`id`, `first_name`, `last_name`, `email`, `user_password`) 
 --
 
 CREATE TABLE `books` (
-  `image` varchar(255) NOT NULL,
   `id` int(11) NOT NULL,
   `book_name` varchar(255) DEFAULT NULL,
   `writer_name` varchar(255) DEFAULT NULL,
   `book_type` varchar(255) NOT NULL,
-  `admin_id` int(11) DEFAULT NULL,
   `book_date` date DEFAULT NULL,
   `about` text DEFAULT NULL,
   `quantity` int(11) NOT NULL,
@@ -70,9 +71,9 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`image`, `id`, `book_name`, `writer_name`, `book_type`, `admin_id`, `book_date`, `about`, `quantity`, `price`) VALUES
-('', 8, 'Est mollit ut quibu', 'Consequatur Aut qua', 'Quisquam ut error au', NULL, '1995-02-25', 'Quidem natus pariatu', 31, 66),
-('', 9, 'Voluptatum reprehend', 'Quis dolorum natus r', 'Dolores ex earum fug', NULL, '1997-11-02', 'Voluptatem illo mol', 91, 668);
+INSERT INTO `books` (`id`, `book_name`, `writer_name`, `book_type`, `book_date`, `about`, `quantity`, `price`) VALUES
+(6, 'dfgdfgd', 'dfgdfg', 'wxcxw', '2022-11-19', 'xcvsdfsdf', 100, 456),
+(7, 'Molestias laborum do', 'Perspiciatis ration', 'Doloremque aut volup', '1986-03-13', 'In voluptate magni a', 72, 369);
 
 --
 -- Indexes for dumped tables
@@ -88,8 +89,7 @@ ALTER TABLE `admin`
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `admin_id` (`admin_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -105,17 +105,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `books`
---
-ALTER TABLE `books`
-  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

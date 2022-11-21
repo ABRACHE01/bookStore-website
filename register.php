@@ -8,9 +8,9 @@ include('server.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books</title>
     
-    <link href="/style/style.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
          
     <!-- this is the mdbootstrape links  -->
 
@@ -87,8 +87,8 @@ include('server.php');
                             <div class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
                               <div class="form-outline flex-fill mb-0">
-                                <input type="tel"    name="phoneNumber" id="phone" class="form-control"  />
-                                <label class="form-label" for="phoneNumber">Phone number/Format: 0656565656</label>
+                                <input type="tel"   pattern="(?:(?:(?:\+|00)212[\s]?(?:[\s]?\(0\)[\s]?)?)|0){1}(?:5[\s.-]?[2-3]|6[\s.-]?[13-9]){1}[0-9]{1}(?:[\s.-]?\d{2}){3}$"  name="phoneNumber" id="phone" class="form-control"/>
+                                <label class="form-label" for="phoneNumber">Phone number/any morrocan format</label>
                               </div>
                             </div>
                             
@@ -104,8 +104,8 @@ include('server.php');
                             <div class="d-flex flex-row align-items-center mb-4">
                               <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                               <div class="form-outline flex-fill mb-0">
-                                <input type="password" name="Repeatyourpassword" id="form3Example4cd" class="form-control" />
-                                <label class="form-label"  for="form3Example4cd">Repeat your password</label>
+                                <input type="password" name="Repeatyourpassword" id="password" class="form-control" />
+                                <label class="form-label"  for="password">Repeat your password</label>
                               </div>
                             </div>
 

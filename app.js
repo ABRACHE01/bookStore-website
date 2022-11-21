@@ -10,7 +10,17 @@
        var quantity_inp=document.querySelector("#quantity");
        
 
+
 function gitElementToModal(id){
+       // hiding the save button in the modal modification
+
+     document.querySelector('#ModaleTitle').innerHTML=" 📚 Update book";
+    document.querySelector('#save-btn').style.display="none";
+    document.querySelector('#update-btn').style.display="block";
+
+
+ 
+
    // (1) getting the curent from  into the table task 
     let curent_title = document.getElementById(id).querySelector('.titleoftab').innerHTML;
     let curent_date = document.getElementById(id).querySelector('.dateoftab').innerHTML;
@@ -21,6 +31,7 @@ function gitElementToModal(id){
    let curent_writer = document.getElementById(id).querySelector('.writeroftab').innerHTML;
    
    console.log(curent_price);
+
    // // //(2) putting the values into the modal form
    
    book_id.value = id;
@@ -32,6 +43,15 @@ function gitElementToModal(id){
    type_inp.value = curent_type ;
    quantity_inp.value = curent_quantity ;
     
+}
+
+function hidebuttonupdate(){
+
+       // hiding the update button in the modal modification
+
+       document.querySelector('#update-btn').style.display="none";
+       document.querySelector('#save-btn').style.display="block";
+
 }
 
 function clear_form(){
