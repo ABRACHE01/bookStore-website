@@ -1,4 +1,6 @@
-	   // getting the inputs from the modal to put values in them
+
+    
+       // getting the inputs from the modal to put values in them
 
        var book_id = document.querySelector("#bookId");
        var title_inp = document.querySelector("#title");

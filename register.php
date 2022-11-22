@@ -137,6 +137,7 @@ include('server.php');
               type="text/javascript"
               src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
             ></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" ></script>
     </body>
 </html>
 

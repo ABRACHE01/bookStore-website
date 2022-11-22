@@ -313,8 +313,10 @@ function count_price(){
     $sql = "SELECT SUM(price)*quantity FROM books "; 
     $result = mysqli_query($linkDB, $sql);
     $row =mysqli_fetch_array($result);
-    echo  $row[0];
-   
+    if($row[0]==0){
+    echo "0";
+    }else{
+   echo  $row[0];}
 }
 
 
@@ -339,7 +341,6 @@ function updatprofile(){
 
     // id of book you want to delete,got it from the delete button
 
-    
     $fname=$_POST['firstName'];
     $lname=$_POST['lastName'];
     $phonenumber=$_POST['mobileNum'];

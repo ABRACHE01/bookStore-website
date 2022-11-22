@@ -16,7 +16,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
   <!--Main Navigation-->
   
   <!--Main layout-->
-  <main style="  margin-top: 58px;">
+  <main   class="mt-5">
 
 
   <?php if (isset($_SESSION['message'])): ?>
@@ -56,7 +56,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
       <li class="breadcrumb-item active" >books modifications</li>
     </ol>
     <div class="d-grid p-4 ">
-      <button type="button" class=" btn btn-info rounded-pill border-warning" onclick=" hidebuttonupdate(); clear_form();" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
+      <button type="button" class=" btn btn-info rounded-pill border-warning " onclick=" hidebuttonupdate(); clear_form();" data-mdb-toggle="modal" data-mdb-target="#modalform"><i class="fa fa-plus"></i> Add books</button>
     </div>
   
   <h3 class=" pt-3 ps-3">books table:</h3>
@@ -65,7 +65,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
         <!-- Modal -->
      
-<div  class="modal fade"  id="modalform"  aria-labelledby="modalform">
+<div  class="modal fade "  id="modalform"  aria-labelledby="modalform">
   <div class="modal-dialog">
     <div class="modal-content"> 
     <div class="modal-header bg-info text-white ">
@@ -103,18 +103,18 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
         </div>
 
         <div  class="mb-3">
-          <label  class="col-form-label">  type:</label>
+          <label  class="col-form-label"> type: </label>
           <input type="texte"  name="type"  class="form-control" id="type">
         </div>
 
         <div  class="mb-3">
-          <label  class="col-form-label">💵 price:</label>
+          <label  class="col-form-label"> 💵 price: </label>
           <input type="number"  name="price"  class="form-control" id="price">
         </div>
 
 
         <div class="mb-3">
-          <label for="about" class="col-form-label">💡 About:</label>
+          <label for="about" class="col-form-label"> 💡 About: </label>
           <textarea class="form-control"  name="about"   id="about"></textarea>
         </div>
 
@@ -136,8 +136,8 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
         
  
 
-  <section>
-    <table class="table align-middle mb-0 bg-white">
+  <section class="table-responsive">
+    <table class="table align-middle mb-0 bg-white   ">
       <thead class="tiblehead">
         <tr  >
           
