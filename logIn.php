@@ -4,6 +4,7 @@
 include('server.php');
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +17,6 @@ include('server.php');
          
     <!-- this is the mdbootstrape links  -->
 
-            <!-- MDB -->
-            <script
-            type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
-            ></script>
-            
             <!-- Font Awesome -->
             <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -37,12 +32,16 @@ include('server.php');
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
             rel="stylesheet"
             />
+
+            <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css%22%3E">
+
             
 
                    <!-- the end of the mdbootstrap  -->
 
 </head>
     <body>
+   
         <section class="vh-100" style="background-color: #eee;">
             <div class="container h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
@@ -54,15 +53,16 @@ include('server.php');
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">log in</p>
 
-                          <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error; ?></div>
+
                         
-                          <form style="width: 23rem;"  method="post" >
+                          <form  method="post"  data-parsley-validate >
 
                      <!-- To show errors is user put wrong data -->
-                       <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error2; ?></div>
+
+                       <div class="error badge badge-danger rounded-4 mb-4  "><?php echo  $error2; ?></div>
 
                       <div class="form-outline mb-4">
-                        <input type="email" id="form2Example18" name="email" class="form-control form-control-lg" />
+                        <input type="email" id="form2Example18" name="email" class="form-control form-control-lg"  />
                         <label class="form-label" for="form2Example18">Email address</label>
                       </div>
           
@@ -82,7 +82,7 @@ include('server.php');
                         </div>
                         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
           
-                          <img src="pics/registerpic.png"
+                          <img src="pics/b.png"
                             class="img-fluid" alt="Sample image">
           
                         </div>
@@ -94,9 +94,13 @@ include('server.php');
             </div>
           </section>
 
-          <script
+            <script
               type="text/javascript"
               src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
             ></script>
+
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js%22%3E "></script>
+             <script defer src="https://parsleyjs.org/dist/parsley.min.js%22%3E"></script>
+
     </body>
 </html>

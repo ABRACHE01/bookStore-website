@@ -11,7 +11,7 @@
 
 
     $error="";
-    $error3="";
+
 
 if(array_key_exists('SignUp',$_POST)){
     include('connection.php');
@@ -45,11 +45,16 @@ if(array_key_exists('SignUp',$_POST)){
     }
 
     if ($error){
-        $error = "there was following errors in your form ".$error;
+        $error = " there was following errors in your form ".$error;
     }else{
+
         //check if the email is already exist in database 
+        //by using his id cus its uniq 
+
         $queary = "SELECT id From admin where email = '$Email' ";
         $result = mysqli_query($linkDB,$queary);
+
+
         if(mysqli_num_rows($result)>0){
             $error = "your email is already exist <br>";
 
@@ -60,12 +65,12 @@ if(array_key_exists('SignUp',$_POST)){
             $result = mysqli_query($linkDB,$queary);
             if (!$result){
 
-                $error = " you are not logged in -try again later ";
+                $error = " you are not logged in try again later ";
 
             }else{
-               
-                echo " you are signed up <br>";
                 header("Location: logIn.php");
+                
+                
 
             }
 

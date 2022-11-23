@@ -31,7 +31,7 @@ include('connection.php');
           </a>
 
           <form >
-          <button type="submit" name="logout" class="list-group-item list-group-item-action py-2 ripple  ">
+          <button type="submit" name="logout" style=" background-color: wheat " class="list-group-item list-group-item-action py-2 ripple text-white rouned">
             🚪🚶 log out 
           </button>
           </form>
