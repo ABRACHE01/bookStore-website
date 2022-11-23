@@ -16,23 +16,11 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
   <!--Main Navigation-->
   
-  <!--Main layout-->
-  <main style="margin-top: 58px;">
-
-  <?php if (isset($_SESSION['messag'])): ?>
-				<div class="alert alert-success alert-dismissible fade show">
-				<strong>Success!</strong>
-					<?php 
-
-						echo $_SESSION['messag']; 
-						unset($_SESSION['messag']);
-					?>
-					<button type="button" class="btn-close" data-mdb-dismiss="alert"></span>
-
-				</div>
-			<?php endif ?>
-
+  <!--Main -->
   
+  <main class="mt-5">
+
+ 
 
     <ol class="breadcrumb pt-3 ps-3 h5">
       <li class="breadcrumb-item active" aria-current="page"><a href="dashboaed.php">Dashboard</a></li>
@@ -42,7 +30,6 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
       My profile
     </h3>
     
-
     <div class="container rounded bg-white mt- mb-5">
       <div class="row">
           <div class="col-md-3 border-right">
@@ -59,10 +46,10 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
                       <div class="col-md-6"><label class="labels">Surname</label><input type="text" name="lastName" class="form-control " value="<?php  echo $rows['last_name'];  ?>" placeholder="surname" ></div>
                   </div>
                   <div class="row mt-3">
+
                       <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control "  name="mobileNum" placeholder="enter phone number" value="<?php echo $rows['phoneNumber']; ?>" ></div>
                       <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control " name="email"  placeholder="enter email id" value="<?php echo $rows['email'];  ?> " ></div>
-                      <!-- <div class="col-md-12"><label class="labels">password</label><input type="text" class="form-control" placeholder="enter new password" value="<?php ; ?>"></div>
-                      <div class="col-md-12"><label class="labels">confirme password</label><input type="text" class="form-control" placeholder="confirme password" value="<?php ; ?>"></div> -->
+                 
 
                   </div>
                  

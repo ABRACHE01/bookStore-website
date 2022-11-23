@@ -32,11 +32,7 @@ include('server.php');
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
             rel="stylesheet"
             />
-
-            <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css%22%3E">
-
-            
-
+ 
                    <!-- the end of the mdbootstrap  -->
 
 </head>
@@ -55,20 +51,20 @@ include('server.php');
 
 
                         
-                          <form  method="post"  data-parsley-validate >
+                          <form  method="post"   >
 
                      <!-- To show errors is user put wrong data -->
 
                        <div class="error badge badge-danger rounded-4 mb-4  "><?php echo  $error2; ?></div>
 
                       <div class="form-outline mb-4">
-                        <input type="email" id="form2Example18" name="email" class="form-control form-control-lg"  />
-                        <label class="form-label" for="form2Example18">Email address</label>
+                        <input type="email" id="Logemail" name="email" class="form-control form-control-lg"  />
+                        <label class="form-label" for="Logemail">Email address</label>
                       </div>
           
                       <div class="form-outline mb-4">
-                        <input type="password" id="form2Example28" name="password" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example28">Password</label>
+                        <input type="password" id="lpassword" name="password" class="form-control form-control-lg" />
+                        <label class="form-label" for="lpassword">Password</label>
                       </div>
           
                       <div class="pt-1 mb-4">
@@ -99,8 +95,8 @@ include('server.php');
               src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
             ></script>
 
-            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js%22%3E "></script>
-             <script defer src="https://parsleyjs.org/dist/parsley.min.js%22%3E"></script>
+           
+         
 
     </body>
 </html>

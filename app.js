@@ -1,4 +1,5 @@
 
+ 
     
        // getting the inputs from the modal to put values in them
 
@@ -14,6 +15,7 @@
 
 
 function gitElementToModal(id){
+
        // hiding the save button in the modal modification
 
      document.querySelector('#ModaleTitle').innerHTML=" 📚 Update book";
@@ -23,7 +25,7 @@ function gitElementToModal(id){
 
  
 
-   // (1) getting the curent from  into the table task 
+   // (1) getting the curent from  into the books table
     let curent_title = document.getElementById(id).querySelector('.titleoftab').innerHTML;
     let curent_date = document.getElementById(id).querySelector('.dateoftab').innerHTML;
    let curent_about = document.getElementById(id).querySelector('.abuotoftab').innerHTML;
@@ -34,7 +36,7 @@ function gitElementToModal(id){
    
    console.log(curent_price);
 
-   // // //(2) putting the values into the modal form
+  //(2) putting the values into the modal form
    
    book_id.value = id;
    title_inp.value = curent_title;

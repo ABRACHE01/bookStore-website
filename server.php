@@ -45,10 +45,11 @@ if(array_key_exists('SignUp',$_POST)){
     }
 
     if ($error){
-        $error = " there was following errors in your form ".$error;
+        $error = " there was following errors in your form<br> ".$error;
     }else{
 
         //check if the email is already exist in database 
+        
         //by using his id cus its uniq 
 
         $queary = "SELECT id From admin where email = '$Email' ";
@@ -287,10 +288,10 @@ function updateBook(){
     $id_book = $_GET['delete'];
 
     //SQL DELETE 
-    mysqli_query($linkDB, "DELETE FROM books WHERE books.id = $id_book");
+    mysqli_query($linkDB, "DELETE FROM books WHERE books.id = '$id_book'");
 
     $_SESSION['message']="the book was deleted seccssessfully. ";
-    header("location:bookmodifs.php");
+    header('location: bookmodifs.php');
    
    
 
@@ -356,8 +357,8 @@ function updatprofile(){
     mysqli_query($linkDB ,"UPDATE `admin` SET `first_name`='$fname',`last_name`='$lname',`phoneNumber`='$phonenumber',`email`='$email' ");
 
 
-    $_SESSION['message'] = "Task has been updated successfully !";
-    header('location: profilesettings.php');
+    $_SESSION['updateprofile'] = "profile has been updated successfully !";
+    header('location: profileSettings.php');
     
 
 }

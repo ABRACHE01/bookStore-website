@@ -81,7 +81,7 @@ include('connection.php');
               data-mdb-toggle="dropdown"
               aria-expanded="false"
             >
-            <span class="text-black me-2"><?php  echo $rows['first_name'];  ?> <?php echo $rows['last_name'];  ?></span>
+            <span class="text-black me-2"><?php  echo $rows['first_name'];  ?> <?php echo $rows['last_name']; ?> </span>
               <img
                 src="pics/icons8-administrator-male-48.png"
                 class="rounded-circle"
