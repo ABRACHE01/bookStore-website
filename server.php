@@ -9,7 +9,6 @@
     if(isset($_POST['update']))  updateBook();
     if(isset($_POST['Save']))  updatprofile();
 
-
     $error="";
 
     // -------User Login  ------------
