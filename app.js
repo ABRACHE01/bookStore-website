@@ -26,8 +26,9 @@ function gitElementToModal(id){
  
 
    // (1) getting the curent from  into the books table
-    let curent_title = document.getElementById(id).querySelector('.titleoftab').innerHTML;
-    let curent_date = document.getElementById(id).querySelector('.dateoftab').innerHTML;
+
+   let curent_title = document.getElementById(id).querySelector('.titleoftab').innerHTML;  
+   let curent_date = document.getElementById(id).querySelector('.dateoftab').innerHTML;
    let curent_about = document.getElementById(id).querySelector('.abuotoftab').innerHTML;
    let curent_price = document.getElementById(id).querySelector('.priceoftab').innerHTML;
    let curent_type= document.getElementById(id).querySelector('.typeoftab').innerHTML;

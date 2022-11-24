@@ -83,7 +83,7 @@ include('server.php');
                         </div>
                         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
           
-                          <img src="pics/b.png"
+                          <img src="pics/d.png"
                             class="img-fluid" alt="Sample image">
           
                         </div>

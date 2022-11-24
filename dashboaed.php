@@ -1,7 +1,8 @@
 <?php 
 include('server.php');
 
-if(!isset($_SESSION['id']))  header('location:logIn.php');
+if(!isset($_SESSION['id']))header('location:logIn.php');
+
 
 ?>
 
