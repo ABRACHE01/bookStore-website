@@ -6,7 +6,7 @@
        var book_id = document.querySelector("#bookId");
        var title_inp = document.querySelector("#title");
        var about_inp = document.querySelector("#about");
-        var date_inp = document.querySelector("#date");
+       var date_inp = document.querySelector("#date");
        var type_inp = document.querySelector("#type");
        var price_inp = document.querySelector("#price");
        var writer_inp = document.querySelector("#writer");
@@ -18,7 +18,7 @@ function gitElementToModal(id){
 
        // hiding the save button in the modal modification
 
-     document.querySelector('#ModaleTitle').innerHTML=" 📚 Update book";
+     document.querySelector('#ModaleTitle').innerHTML=" 📚 Update book ";
     document.querySelector('#save-btn').style.display="none";
     document.querySelector('#update-btn').style.display="block";
 

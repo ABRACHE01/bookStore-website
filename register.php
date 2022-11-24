@@ -31,77 +31,83 @@ include('server.php');
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
             rel="stylesheet"
             />
+            <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css"/>
             
 
        <!-- the end of the mdbootstrap  -->
 
 </head>
-    <body>
-        <section class="vh-100" style="background-color: #eee;">
-            <div class="container h-100">
+    <body style="background-color: #eee;">
+        <section  >
+            <div class="container vh-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
                   <div class="card text-black" style="border-radius: 25px;">
-                    <div class="card-body p-md-5">
+                    <div class="card-body p-md-5 vh-100">
                       <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
           
-                          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">📔 Sign up</p>
 
                           <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error; ?></div>
 
-                          <form class="mx-1 mx-md-4" action="" method="post" >
+                          <form class="mx-1 mx-md-4" action="" method="post" data-parsley-validate>
                               
                              <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
-                                    <div class="col-md-6 d-flex flex-row align-items-center mb-4">
 
-                                <i class="fas fa-user fa-lg me-3 fa-fw" ></i>
-                                <div class="form-outline flex-fill mb-0">
-                                        <input type="text" name="Firstname"  id="fname" class="form-control" />
-                                        <label class="form-label" for="fname">First name</label>
+                                <div class="col-md-6 d-flex flex-row align-items-center mb-4">
+                                <i class="fas fa-user fa-lg me-3 fa-fw pt-4 " ></i>
+                                <div class="flex-fill mb-0">
+                                        <label class="form-label fw-bold" for="fname">First name:</label>
+                                        <input type="text" name="Firstname"  id="fname" class="form-control" required data-parsley-trigger="keyup"/> 
                                     </div>
+
                                     </div>
                                     <div class="col-md-6 d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                        <input type="text" name="Lastname" id="lname" class="form-control" />
-                                        <label class="form-label" for="lname">Last name</label>
+                                        <i class="fas fa-user fa-lg me-3 fa-fw pt-4 "></i>
+                                        <div class="flex-fill mb-0">
+                                          <label class="form-label fw-bold" for="lname">Last name:</label>
+                                        <input type="text" name="Lastname" id="lname" class="form-control" required data-parsley-trigger="keyup"/>
+                                        
                                     </div>
 
                                     </div>
                                 </div>
           
                             <div class="d-flex flex-row align-items-center mb-4">
-                              <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                              <div class="form-outline flex-fill mb-0">
-                                <input type="email" name="YourEmail" id="email" class="form-control " />
-                                <label class="form-label" for="email">Your Email</label>
+                              <i class="fas fa-envelope fa-lg me-3 fa-fw pt-4 "></i>
+                              <div class="flex-fill mb-0">
+                                <label class="form-label fw-bold" for="email">Your Email:</label>
+                                <input type="email" name="YourEmail" id="email" class="form-control " required data-parsley-trigger="keyup"/>
+                                
                               </div>
                             </div>
           
                             <div class="d-flex flex-row align-items-center mb-4">
-                              <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
-                              <div class="form-outline flex-fill mb-0">
-                                <input type="tel"   pattern="(?:(?:(?:\+|00)212[\s]?(?:[\s]?\(0\)[\s]?)?)|0){1}(?:5[\s.-]?[2-3]|6[\s.-]?[13-9]){1}[0-9]{1}(?:[\s.-]?\d{2}){3}$"  name="phoneNumber" id="phone" class="form-control"/>
-                                <label class="form-label" for="phoneNumber">Phone number/any morrocan format</label>
+                              <i class="fas fa-phone fa-lg me-3 fa-fw pt-4"></i>
+                              <div class="flex-fill mb-0">
+                              <label class="form-label fw-bold" for="phoneNumber">Phone number/any morrocan format:</label>
+                                <input type="tel"   pattern="(?:(?:(?:\+|00)212[\s]?(?:[\s]?\(0\)[\s]?)?)|0){1}(?:5[\s.-]?[2-3]|6[\s.-]?[13-9]){1}[0-9]{1}(?:[\s.-]?\d{2}){3}$"  name="phoneNumber" id="phone" class="form-control" required data-parsley-trigger="keyup"/>
                               </div>
                             </div>
                             
 
                             <div class="d-flex flex-row align-items-center mb-4">
-                              <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                              <div class="form-outline flex-fill mb-0">
-                                <input type="password" name="Password" id="password" class="form-control" />
-                                <label class="form-label" for="password">Password</label>
+                              <i class="fas fa-lock fa-lg me-3 fa-fw pt-4"></i>
+                              <div class="flex-fill mb-0"> 
+                                <label class="form-label fw-bold" for="password">Password:</label>
+                                <input type="password" name="Password" id="password" class="form-control" required data-parsley-trigger="keyup"/>
+                               
                               </div>
                             </div>
           
                             <div class="d-flex flex-row align-items-center mb-4">
-                              <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div class="form-outline flex-fill mb-0">
-                                <input type="password" name="Repeatyourpassword" id="rpassword" class="form-control" />
-                                <label class="form-label"  for="rpassword">Repeat your password</label>
+                              <i class="fas fa-key fa-lg me-3 fa-fw pt-4  "></i>
+                              <div class="flex-fill mb-0">
+                                <label class="form-label fw-bold fw-bold"  for="rpassword">Repeat your password:</label>
+                                <input type="password" name="Repeatyourpassword" id="rpassword" class="form-control" required data-parsley-trigger="keyup"/>
+                                
                               </div>
                             </div>
 
@@ -128,6 +134,9 @@ include('server.php');
               </div>
             </div>
           </section>
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
           <script
               type="text/javascript"

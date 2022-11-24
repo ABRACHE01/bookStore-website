@@ -32,14 +32,16 @@ include('server.php');
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
             rel="stylesheet"
             />
- 
+            
+            <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css"/>
                    <!-- the end of the mdbootstrap  -->
+                  
 
 </head>
-    <body>
+    <body style="background-color: #eee;">
    
-        <section class="vh-100" style="background-color: #eee;">
-            <div class="container h-100">
+        <section >
+            <div class="container vh-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
                   <div class="card text-black" style="border-radius: 25px;">
@@ -47,26 +49,29 @@ include('server.php');
                       <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
           
-                          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">log in</p>
+                          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">📚 log in</p>
 
 
                         
-                          <form  method="post"   >
+                          <form  method="post"  data-parsley-validate >
 
                      <!-- To show errors is user put wrong data -->
 
                        <div class="error badge badge-danger rounded-4 mb-4  "><?php echo  $error2; ?></div>
 
-                      <div class="form-outline mb-4">
-                        <input type="email" id="Logemail" name="email" class="form-control form-control-lg"  />
-                        <label class="form-label" for="Logemail">Email address</label>
+                      <div class=" mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw pt-4"></i>
+                      <label class="form-label fw-bold" for="Logemail ">Email address :</label>
+                        <input type="email" id="Logemail" name="email" class="form-control form-control-lg" required data-parsley-type="email" data-parsley-trigger="keyup" />
                       </div>
           
-                      <div class="form-outline mb-4">
-                        <input type="password" id="lpassword" name="password" class="form-control form-control-lg" />
-                        <label class="form-label" for="lpassword">Password</label>
+                      <div class=" mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw pt-4"></i>
+                      <label class="form-label fw-bold" for="lpassword">Password :</label>
+                        <input type="password" id="lpassword" name="password" class="form-control form-control-lg" required data-parsley-trigger="keyup" data-parsley-type="password"/>
+                        
                       </div>
-          
+
                       <div class="pt-1 mb-4">
                         <button class="btn btn-info btn-lg btn-block" type="submit"  name="logIn" >Login</button>
                       </div>
@@ -89,6 +94,8 @@ include('server.php');
               </div>
             </div>
           </section>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
             <script
               type="text/javascript"

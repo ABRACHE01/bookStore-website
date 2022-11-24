@@ -288,12 +288,8 @@ function updateBook(){
     $id_book = $_GET['delete'];
 
     //SQL DELETE 
-    mysqli_query($linkDB, "DELETE FROM books WHERE books.id = '$id_book'");
-
-    $_SESSION['message']="the book was deleted seccssessfully. ";
-    header('location: bookmodifs.php');
-   
-   
+    mysqli_query($linkDB, "DELETE FROM books WHERE books.id = $id_book");
+ 
 
 }
 
@@ -355,11 +351,7 @@ function updatprofile(){
     //SQL DELETE 
     
     mysqli_query($linkDB ,"UPDATE `admin` SET `first_name`='$fname',`last_name`='$lname',`phoneNumber`='$phonenumber',`email`='$email' ");
-
-
-    $_SESSION['updateprofile'] = "profile has been updated successfully !";
-    header('location: profileSettings.php');
-    
+   
 
 }
 

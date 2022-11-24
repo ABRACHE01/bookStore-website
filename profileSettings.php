@@ -47,7 +47,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
                   </div>
                   <div class="row mt-3">
 
-                      <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control "  name="mobileNum" placeholder="enter phone number" value="<?php echo $rows['phoneNumber']; ?>" ></div>
+                      <div class="col-md-12"><label class="labels">Mobile Number</label><input  type="tel"   pattern="(?:(?:(?:\+|00)212[\s]?(?:[\s]?\(0\)[\s]?)?)|0){1}(?:5[\s.-]?[2-3]|6[\s.-]?[13-9]){1}[0-9]{1}(?:[\s.-]?\d{2}){3}$" class="form-control "  name="mobileNum" placeholder="enter phone number" value="<?php echo $rows['phoneNumber']; ?>" ></div>
                       <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control " name="email"  placeholder="enter email id" value="<?php echo $rows['email'];  ?> " ></div>
                  
 

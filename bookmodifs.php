@@ -13,9 +13,10 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
     <?php include('header.php'); ?>
       
    
-  <!--Main Navigation-->
+  
   
   <!--Main -->
+  
     <main   class="mt-5">
 
         <!-- sission of update -->
@@ -47,6 +48,7 @@ if(!isset($_SESSION['id'])) header('location:logIn.php');
 
             </div>
             <?php endif ?>
+
                         
                 <ol class="breadcrumb pt-3 ps-3 h5">
                    <li class="breadcrumb-item active" >books modifications</li>
