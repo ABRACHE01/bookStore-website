@@ -2,7 +2,7 @@
 
  session_start();
 
-    //PHP code to logout user from website
+    
     if(isset($_GET['logout']))  logout();
     if(isset($_POST['save_book']))  saveBook();
     if(isset($_GET['delete']))  deleteBook();
@@ -12,19 +12,21 @@
 
     $error="";
 
-
+    // -------User Login  ------------
 if(array_key_exists('SignUp',$_POST)){
     include('connection.php');
 
 
     //taking data frome user
-    $Fname = mysqli_real_escape_string($linkDB,$_POST['Firstname']);
-    $Lname = mysqli_real_escape_string($linkDB,$_POST['Lastname']);
-    $number = mysqli_real_escape_string($linkDB,$_POST['phoneNumber']);
-    $Email = mysqli_real_escape_string($linkDB,$_POST['YourEmail']);
-    $Password = mysqli_real_escape_string($linkDB,$_POST['Password']);
-    $RPassword = mysqli_real_escape_string($linkDB,$_POST['Repeatyourpassword']);
+    $Fname =  $_POST['Firstname'];
+    $Lname = $_POST['Lastname'];
+    $number = $_POST['phoneNumber'];
+    $Email =  $_POST['YourEmail'];
+    $Password = $_POST['Password'];
+    $RPassword = $_POST['Repeatyourpassword'];
+
     //data filter
+
     if(!$Fname){
         $error .= "first name is required <br>";
     }
@@ -60,18 +62,20 @@ if(array_key_exists('SignUp',$_POST)){
             $error = "your email is already exist <br>";
 
         }else{
+
             //password encryption 
             $hashedPassword= password_hash($Password,PASSWORD_DEFAULT);
+
             $queary= "INSERT INTO admin (`first_name`, `last_name`,`phoneNumber`, `email`, `user_password`) VALUES ('$Fname','$Lname','$number','$Email','$hashedPassword')";
             $result = mysqli_query($linkDB,$queary);
+
             if (!$result){
 
                 $error = " you are not logged in try again later ";
 
             }else{
+                
                 header("Location: logIn.php");
-                
-                
 
             }
 
@@ -81,7 +85,7 @@ if(array_key_exists('SignUp',$_POST)){
 }
 
 
-// -------User Login PHP Code ------------
+// -------User Login  ------------
 $error2="";
 
 if (array_key_exists("logIn", $_POST)) {
@@ -90,8 +94,8 @@ if (array_key_exists("logIn", $_POST)) {
     include('connection.php'); 
  
       //Taking form Data From User
-      $email = mysqli_real_escape_string($linkDB, $_POST['email']);
-      $password = mysqli_real_escape_string($linkDB,  $_POST['password']); 
+      $email =$_POST['email'];
+      $password =$_POST['password']; 
        
       //Check if input Field are empty
       if (!$email) {
@@ -139,8 +143,7 @@ if (array_key_exists("logIn", $_POST)) {
 
 
 function logout(){  
-
-    unset($_SESSION["name"]);
+    unset($_SESSION["id"]);
     session_destroy();
     header("Location:logIn.php");
     exit();
@@ -257,9 +260,8 @@ function updateBook(){
     global $linkDB ;
     //CODE HERE
 
-    // id of book you want to delete,got it from the delete button
+    // new input values
 
-    
     $title=$_POST['title'];
     $writer=$_POST['writer'];
     $type=$_POST['type'];
@@ -277,8 +279,6 @@ function updateBook(){
 
 }
 
-
-
  function deleteBook(){
     include('connection.php');
     global $linkDB ;
@@ -294,16 +294,15 @@ function updateBook(){
 }
 
 // counter of buttons in every task 
-
 function countbooks(){
 
     include('connection.php');
     global $linkDB ;
-    //SQL COUNTER OF 
-    $sql = "SELECT count(*) FROM books"; 
+    //SQL COUNTER OF books
+    $sql = "SELECT * FROM books"; 
     $result = mysqli_query($linkDB, $sql);
-    $row =mysqli_fetch_array($result);
-    echo  $row[0];
+    $row =mysqli_num_rows($result);
+    echo  $row;
    
 }
 
@@ -327,10 +326,10 @@ function adminscount(){
     include('connection.php');
     global $linkDB ;
     //SQL COUNTER OF admins
-    $sql = "SELECT count(*) FROM admin"; 
+    $sql = "SELECT * FROM admin"; 
     $result = mysqli_query($linkDB, $sql);
-    $row =mysqli_fetch_array($result);
-    echo  $row[0];
+    $row =mysqli_num_rows($result);
+    echo  $row;
    
 }
 
@@ -339,20 +338,18 @@ function updatprofile(){
 
     include('connection.php');
     global $linkDB ;
-    //CODE HERE
 
-    // id of book you want to delete,got it from the delete button
+    //CODE HERE
 
     $fname=$_POST['firstName'];
     $lname=$_POST['lastName'];
     $phonenumber=$_POST['mobileNum'];
     $email=$_POST['email'];
-   
-    //SQL DELETE 
+    $adminId=$_SESSION['id'];
+    //SQL update
     
-    mysqli_query($linkDB ,"UPDATE `admin` SET `first_name`='$fname',`last_name`='$lname',`phoneNumber`='$phonenumber',`email`='$email' ");
+    mysqli_query($linkDB ,"UPDATE `admin` SET `first_name`='$fname',`last_name`='$lname',`phoneNumber`='$phonenumber',`email`='$email'  WHERE admin.id = '$adminId'  ");
    
-
 }
 
 
