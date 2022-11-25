@@ -52,7 +52,7 @@ include('server.php');
                           <div class="error badge badge-danger rounded-4 container-fluid mb-4 "><?php echo  $error; ?></div>
 
                           <form class="mx-1 mx-md-4" action="" method="post" data-parsley-validate>
-                              
+      
                              <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
 

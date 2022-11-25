@@ -23,4 +23,4 @@
                 rel="stylesheet"
                 />
                 <!-- MDB -->
-</heade>
+</head>

@@ -2,7 +2,6 @@
 
  session_start();
 
-    
     if(isset($_GET['logout']))  logout();
     if(isset($_POST['save_book']))  saveBook();
     if(isset($_GET['delete']))  deleteBook();
@@ -11,8 +10,8 @@
 
     $error="";
 
-    // -------User Login  ------------
-if(array_key_exists('SignUp',$_POST)){
+    // -------User regisrter  ------------
+if(array_key_exists("SignUp",$_POST)){
     include('connection.php');
 
 
@@ -82,8 +81,6 @@ if(array_key_exists('SignUp',$_POST)){
     }
    
 }
-
-
 // -------User Login  ------------
 $error2="";
 
@@ -138,16 +135,12 @@ if (array_key_exists("logIn", $_POST)) {
       
 }
 
-
-
-
 function logout(){  
     unset($_SESSION["id"]);
     session_destroy();
     header("Location:logIn.php");
     exit();
 }
-
 
  // if you push the button save 
 
@@ -188,8 +181,6 @@ function logout(){
     
 
 }
-
-
 
 function getbooks(){
 
@@ -278,6 +269,7 @@ function updateBook(){
 
 }
 
+
  function deleteBook(){
     include('connection.php');
     global $linkDB ;
@@ -292,7 +284,7 @@ function updateBook(){
 
 }
 
-// counter of buttons in every task 
+ 
 function countbooks(){
 
     include('connection.php');
